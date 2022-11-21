@@ -1,0 +1,15 @@
+name:project_github actions
+on:[push]
+env:
+ MY_ARTIFACT:myartifact
+  webhooks:
+  needs:
+  runs on:ubuntu:latest
+  steps:
+    -name:check out code
+    -uses:actions/checkout@v2
+    -name:upload the artifact
+    -uses:actions/upload-artifact@v2
+    with:
+      name: ${{env.ARTIFACT_NAME}}
+      path: .
